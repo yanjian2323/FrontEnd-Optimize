@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css-js1</title>
+	<!-- 这个地方的js会先执行 -->
+	<script type="text/javascript">
+		console.log('init');
+	</script>
+	<link rel="stylesheet" type="text/css" href="./assets/css/a.css">
+	<!-- css会阻止js的执行,所以这个地方的js不会立马执行，需要等第一批css加载完 -->
+	<script type="text/javascript">
+		console.log('init2');
+	</script>
+	<link rel="stylesheet" type="text/css" href="./assets/css/b.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/c.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/d.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/e.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/f.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/g.css">
+</head>
+<body>
+	<!-- 1. css会阻塞html内容的渲染,下面的html必须等待所有的css下载并执行完以后才开始渲染 -->
+	<!-- 2. 所以刚开始页面应该是空白，当上面的css全部下载完以后，才开始渲染html-->
+	<!-- 3. 渲染html的时候由于已经有了样式，所以渲染出来的html是有样式的，不会出现突然页面样式出现的情况 -->
+	<p class="a">this is a</p>
+	<p class="b">this is b</p>
+	<p class="c">this is c</p>
+	<p class="d">this is d</p>
+	<p class="e">this is e</p>
+	<p class="f">this is f</p>
+	<p class="g">this is g</p>
+</body>
+</html>

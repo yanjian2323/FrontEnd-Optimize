@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css-js2</title>
+</head>
+<body>
+	<div class="a">this is a</div>
+	<div class="b">this is b</div>
+	<div class="c">this is c</div>
+	<div class="d">this is d</div>
+	<div class="e">this is e</div>
+	<div class="f">this is f</div>
+	<div class="g">this is g</div>
+	<!-- 1. 正常情况下，应该是先把html显示出来，但是实际运行测试并不是这样 -->
+	<!-- 2. 如果先把html显示出来，再去加载样式，会出现页面突然样式出现的问题 -->
+	<!-- 3. 猜测chrome可能做了优化，为了避免样式突然出现的问题，等待css加载完以后才把html显示出来 -->
+	<link rel="stylesheet" type="text/css" href="./assets/css/a.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/b.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/c.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/d.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/e.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/f.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/g.css">
+</body>
+	
+</html>

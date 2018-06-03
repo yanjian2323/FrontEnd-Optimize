@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css-js5</title>
+
+	<script src="./assets/js/a.js" async></script>
+	<script src="./assets/js/b.js" async></script>
+	<script src="./assets/js/c.js" async></script>
+	<script src="./assets/js/d.js" async></script>
+	<script src="./assets/js/e.js" async></script>
+</head>
+<body>
+	<!-- 1. 添加了async 不会阻塞html的渲染 -->
+	<!-- 2. 但是async的机制是那个js文件先下载完就先执行哪个,执行的顺序不一定是加载的顺序 -->
+	<div class="a">this is a</div>
+	<div class="b">this is b</div>
+	<div class="c">this is c</div>
+	<div class="d">this is d</div>
+	<div class="e">this is e</div>
+	<div class="f">this is f</div>
+	<div class="g">this is g</div>
+
+	
+</body>
+	
+</html>

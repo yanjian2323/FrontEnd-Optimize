@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css-js6</title>
+
+	<script src="./assets/js/a.js" defer></script>
+	<script src="./assets/js/b.js" defer></script>
+	<script src="./assets/js/c.js" defer></script>
+	<script src="./assets/js/d.js" defer></script>
+	<script src="./assets/js/e.js" defer></script>
+</head>
+<body>
+	<!-- 1. defer 不会阻塞html的渲染 -->
+	<!-- 2. 但是defer和async不同的地方是：defer的执行顺序就是js加载的顺序-->
+	<!-- 3. defer的执行时机是dom加载完,也就是在DOMContentLoaded完 -->
+	<div class="a">this is a</div>
+	<div class="b">this is b</div>
+	<div class="c">this is c</div>
+	<div class="d">this is d</div>
+	<div class="e">this is e</div>
+	<div class="f">this is f</div>
+	<div class="g">this is g</div>
+</body>
+	
+</html>
