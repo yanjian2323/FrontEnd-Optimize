@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>reflow</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div class="box">this is a box</div>
+</body>
+<script>
+    setTimeout(() => {
+        let box = document.querySelector('.box');
+        // 注意：这么写不会触发回流，也不会触发重绘，因为浏览器的优化机制
+        box.style.display = 'none';
+        box.style.display = 'block';
+    }, 1000);
+    setTimeout(() => {
+        let box = document.querySelector('.box');
+        box.style.display = 'none';
+        setTimeout(() => {
+            box.style.width = '100px';
+            box.style.height = '100px';
+            box.style.backgroundColor = 'green';
+            box.style.borderWidth = '1px';
+            box.style.borderColor = 'red';
+            box.style.borderStyle = 'solid';
+            box.style.display = 'block';
+        }, 1000);
+        
+    }, 2000);
+</script>
+</html>

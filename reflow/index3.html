@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>reflow</title>
+    <style>
+        .box-style{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            border-width: 1px;
+            border-color: red;
+            border-style: solid;
+        }
+    </style>
+</head>
+<body>
+    <span>123</span>
+    <div class="box">this is a box</div>
+</body>
+<script>
+    setTimeout(() => {
+        let box = document.querySelector('.box');
+        // 尽量不要一条条样式修改，而应该把样式放到一个class中，给这个元素添加这个class
+        // box.style.width = '100px';
+        // box.style.height = '100px';
+        // box.style.backgroundColor = 'green';
+        // box.style.borderWidth = '1px';
+        // box.style.borderColor = 'red';
+        // box.style.borderStyle = 'solid';
+
+        let cls = box.className;
+        box.className = cls + ' box-style';
+    }, 2000);
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>reflow</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            /* opacity: 1; */
+            transform: translateZ(0);
+        }
+    </style>
+</head>
+<body>
+    <span>123</span>
+    <div class="box">this is a box</div>
+</body>
+<script>
+    setTimeout(() => {
+        let box = document.querySelector('.box');
+        // 触发重绘,不触发回流
+        // box.style.visibility = 'hidden';
+        // 不触发重绘,也不触发回流,前提是要把它独立成一个图层(用transform: translateZ(0)样式开启3D transform)
+        box.style.opacity = 0;
+    }, 2000);
+</script>
+</html>

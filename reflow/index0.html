@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>reflow</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            border-width: 1px;
+            border-color: red;
+            border-style: solid;
+            transform: translateZ(0);
+        }
+    </style>
+</head>
+<body>
+    <span>123</span>
+    <div class="box">this is a box</div>
+</body>
+<script>
+    setTimeout(() => {
+        let box = document.querySelector('.box');
+        // 这个代码会触发回流，然后会触发重绘
+        // 回流是页面级别的行为，重绘是发生在所在图层,box因为设置了translateZ，所以是一个独立图层
+        box.style.width = '300px';
+    }, 2000);
+</script>
+</html>

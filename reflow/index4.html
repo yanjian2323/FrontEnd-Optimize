@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>reflow</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            border-width: 1px;
+            border-color: red;
+            border-style: solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">this is a box</div>
+    <div class="box">this is a box</div>
+    <div class="box">this is a box</div>
+    <div class="box">this is a box</div>
+    <div class="box">this is a box</div>
+    <div class="box">this is a box</div>
+    <div class="box">this is a box</div>
+    <div class="box">this is a box</div>
+    <div class="box">this is a box</div>
+    <div class="box">this is a box</div>
+    <div class="box">this is a box</div>
+    <div class="box">this is a box</div>
+</body>
+<script>
+    setTimeout(() => {
+        let boxs = document.querySelectorAll('.box');
+        for(let i = 0; i < boxs.length; i++) {
+            // 多次重绘，但是只有一次回流
+            boxs[i].style.width = '200px';
+            // 不要这么写,要不每次都触发回流,要把document.body.clientHeight定义成一个变量
+            console.log(document.body.clientHeight);
+        }
+    }, 1000);
+
+    setTimeout(() => {
+        let boxs = document.querySelectorAll('.box');
+        // 这个地方不会进行回流，因为flush里没有东西
+        let h = document.body.clientHeight;
+        for(let i = 0; i < boxs.length; i++) {
+            boxs[i].style.width = '300px';
+            console.log(h);
+        }
+    }, 2000);
+
+    setTimeout(() => {
+        let boxs = document.querySelectorAll('.box');
+        boxs[0].style.width = '400px';
+        // 这个地方"会"进行回流，因为flush里有东西
+        let h = document.body.clientHeight;
+        for(let i = 0; i < boxs.length; i++) {
+            boxs[i].style.width = '300px';
+            console.log(h);
+        }
+    }, 3000);
+</script>
+</html>
