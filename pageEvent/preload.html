@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>preload</title>
+    <link rel="preload" href="/pageEvent/style/style.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="/pageEvent/js/preload.js" as="script" onload="handle()" />
+</head>
+<body>
+    <div>test preload</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            console.log('DomContentLoaded');
+        }, false);
+        window.onload = function () {
+            console.log('onload');
+        };
+        function handle() {
+            let sc = document.createElement('script');
+            sc.src = '/pageEvent/js/preload.js';
+            document.head.appendChild(sc);
+        }
+    </script>
+</body>
+</html>
