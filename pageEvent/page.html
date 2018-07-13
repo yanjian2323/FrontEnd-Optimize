@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="/pageEvent/js/test.js" defer></script>
+    <script src="/pageEvent/js/test2.js" defer></script>
+    <!-- <script>
+        function loadJs (src) {
+            var sc = document.createElement('script');
+            sc.src = src;
+            document.head.appendChild(sc);
+        }
+        loadJs('js/test.js');
+        loadJs('js/test2.js');
+    </script> -->
+    <script>
+        // script defer脚本 执行的时机肯定是页面状态document.readyState变为interactive,DOMContentLoaded之前
+        // script async脚本 执行的时机肯定是页面状态document.readyState变为interactive,DOMContentLoaded之后
+        // 动态创建的js的执行和script async相似,暂时没发现有区别
+        document.onreadystatechange = function (){
+            // 可以观察到的document.readyState的状态变化是: loading->interactive->complete
+            console.log(document.readyState);
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DomContentLoaded');
+        }, false);
+        window.onload = function () {
+            console.log('onload');
+        }
+    </script>
+</head>
+<body>
+    <img src="/pageEvent/images/1.png" />
+    <a class="btn" href="#">
+        来啊来啊
+        <div class="box"></div>
+    </a>
+</body>
+</html>
